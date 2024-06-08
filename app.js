@@ -9,6 +9,10 @@ const server=http.createServer((req,res)=>{
 
     console.log("server created and ready to listen the client request")
     console.log(req)
+     
+    //exit from event loop we use process.exit()
+    // process.exit() optional not to close untill response also reached to browser
+
 })
 
 //Listen() method is used to set up the port for server to launch and be in state of listening request from the clients
