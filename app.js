@@ -9,9 +9,10 @@ const server=http.createServer((req,res)=>{
 
     console.log("server created and ready to listen the client request")
     console.log(req)
+
+    console.log(req.url,req.method,req.headers) //important request fields from client when sent the request to server upon starting
      
-    //exit from event loop we use process.exit()
-    // process.exit() optional not to close untill response also reached to browser
+    
 
 })
 
