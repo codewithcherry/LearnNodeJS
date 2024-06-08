@@ -1,6 +1,10 @@
 THis is the file to to note down some important points and also topics and concepts to understand nodejs
 
-Controlling the Node.js Process
-Want to quit your running Node.js server?
-
+1.Controlling the Node.js Process
+Ans: Want to quit your running Node.js server?
 You can always do that by pressing CTRL + C in the terminal/ command prompt window where you started your server (i.e. where you ran node app.js).
+
+2.Request & Response Headers
+Ans: On both requests and responses, Http headers are added to transport metadata from A to B.
+The following article provides a great overview of available headers and their role: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+Whilst this article is a great resource, especially to dive deeper, please don't learn this list by heart though! You'll encounter many of these headers throughout the course and I'll explain them when we need them.
