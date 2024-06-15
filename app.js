@@ -3,6 +3,8 @@
 //code use the http core module to create the server for request and response from the server
 const http =require('http')
 
+const fs=require('fs') //filesystem module to deal with file handling operations
+
 //createServer() is the method which will take a callback function which will start taking the request from the clients into server
 
 const server=http.createServer((req,res)=>{
@@ -22,6 +24,16 @@ const server=http.createServer((req,res)=>{
             res.write("</html>")
             return res.end()
         }
+
+//below code is for redirecting the pages using node js
+
+if (url === "/message" && req.method==="POST"){
+
+    fs.writeFileSync("Message.txt","just a dummy value")
+    res.statusCode=302 //redirection code to set status for network
+    res.setHeader("Location","/") //set location of redirection
+    return res.end()
+}
 
 //code below will to set the response on the browser sent to client
 
