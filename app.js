@@ -29,7 +29,22 @@ const server=http.createServer((req,res)=>{
 
 if (url === "/message" && req.method==="POST"){
 
-    fs.writeFileSync("Message.txt","just a dummy value")
+    const body=[]; //body variable to store all the chunks from the requests
+
+    req.on('data',(chunck)=>{
+        body.push(chunck); //all chunks data is being collected in body
+        console.log(chunck);
+    })
+
+    //below code is for making a buffer using all chunks so later we can use the data into display in routes
+
+    req.on('end',()=>{
+        const parseBody=Buffer.concat(body).toString(); //create a buffer of chunks which are converted into string to be uses later and store in parsed data
+        console.log(parseBody)
+        const data=parseBody.split("=")[1];
+        fs.writeFileSync("Message.txt",data) //parsed data is split by = then 2nd element after split is being sent to routing to display on screen
+    })
+
     res.statusCode=302 //redirection code to set status for network
     res.setHeader("Location","/") //set location of redirection
     return res.end()
