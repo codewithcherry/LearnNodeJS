@@ -7,10 +7,22 @@ const http =require('http')
 
 const server=http.createServer((req,res)=>{
 
-    console.log("server created and ready to listen the client request")
-    console.log(req)
-    console.log(req.url,req.method,req.headers) //important request fields from client when sent the request to server upon starting
+    // console.log("server created and ready to listen the client request")
+    // console.log(req)
+    // console.log(req.url,req.method,req.headers) //important request fields from client when sent the request to server upon starting
      
+//this is code is to understanding routing in node js
+        const url =req.url
+
+        if (url==="/"){
+            
+            res.write("<html>")
+            res.write("<head><title> Routing Learning </title> </head>")
+            res.write('<body><form action="/message" method="POST"><input type="text" placeholder="type message" name="message"><button type="submit">send</button></form></body>')
+            res.write("</html>")
+            return res.end()
+        }
+
 //code below will to set the response on the browser sent to client
 
     res.setHeader('content-type','text/html')
