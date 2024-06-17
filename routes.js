@@ -56,3 +56,5 @@ if (url === "/message" && req.method==="POST"){
     // process.exit() optional not to close untill response also reached to browser
 
 }
+
+module.exports={requestHandler}
